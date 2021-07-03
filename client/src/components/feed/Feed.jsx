@@ -52,6 +52,7 @@ function ScrollTop(props) {
 
 export default function Feed({ username }, props) {
 	const [posts, setPosts] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const { user } = useContext(AuthContext);
 
 	useEffect(() => {
@@ -64,6 +65,7 @@ export default function Feed({ username }, props) {
 					return new Date(p2.createdAt) - new Date(p1.createdAt);
 				})
 			);
+			setLoading(prevState => !prevState);
 		};
 		fetchPosts();
 	}, [username, user._id]);
