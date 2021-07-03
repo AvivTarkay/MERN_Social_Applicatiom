@@ -1,0 +1,105 @@
+.base-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.header {
+	font-size: 24px;
+	font-family: "Open Sans", sans-serif;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.image {
+	width: 21em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.image > img {
+	width: 200px;
+	height: 150px;
+	border-radius: 50%;
+}
+.form {
+	margin-top: 2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: fit-content;
+}
+.form-group > label {
+	font-size: 20px;
+}
+.loginInput {
+	margin-top: 6px;
+	min-width: 18em;
+	font-size: 12px;
+	font-family: "Open Sans", sans-serif;
+	background-color: #f3f3f3;
+	margin-bottom: 31px;
+	transition: all 250ms ease-in-out;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid rgb(231, 223, 223);
+	font-size: 18px;
+	padding-left: 20px;
+}
+.loginInput:focus {
+	outline: none;
+	box-shadow: 0px 0px 12px 0.8px #92979eb2;
+}
+.moveToLogIn {
+	margin: 20px 0;
+	font-weight: 500;
+	font-size: 20px;
+	color: #3498db;
+}
+/* ---------------- */
+.loginBox {
+	height: 400px;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.loginButton {
+	height: 50px;
+	border-radius: 10px;
+	border: none;
+	background-color: #1775ee;
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.loginForgot {
+	text-align: center;
+	color: #1775ee;
+}
+
+.loginRegisterButton {
+	width: 60%;
+	align-self: center;
+	height: 50px;
+	border-radius: 10px;
+	border: none;
+	background-color: #42b72a;
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+	cursor: pointer;
+}

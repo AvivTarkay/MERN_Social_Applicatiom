@@ -1,0 +1,108 @@
+:root {
+	--desktop: 1200px;
+	--laptop: 1024px;
+	--tablet: 768px;
+	--mobile: 480px;
+}
+
+.MuiContainer-root {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.leftBarContainer {
+	flex: 3;
+	background-color: #d8e2dc;
+}
+
+.leftbar {
+	height: calc(100vh - 50px);
+	height: 100vh;
+	overflow-y: scroll;
+	position: sticky;
+	top: 65px;
+}
+.leftbarMenu {
+	height: 100vh;
+	height: 100vh;
+	overflow-y: scroll;
+	position: sticky;
+	top: 65px;
+}
+
+.leftbarListItemText {
+	color: #000;
+}
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background-color: #adb5bd;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #6c757d;
+}
+.leftbarWrapper {
+	padding: 20px;
+}
+.leftbarList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.leftbarListItem {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.leftbarIcon {
+	margin-right: 15px;
+}
+.leftbarButton {
+	width: 150px;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: 500;
+}
+.leftbarHr {
+	margin: 20px 0;
+}
+.leftbarFriendList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+#feed {
+	color: rgb(238, 205, 61);
+}
+#chat {
+	color: rgb(61, 197, 238);
+}
+#video {
+	color: rgb(238, 61, 85);
+}
+#groups {
+	color: rgb(61, 108, 238);
+}
+#bookmarks {
+	color: rgb(61, 238, 61);
+}
+#question {
+	color: rgb(240, 118, 3);
+}
+#jobs {
+	color: rgb(248, 15, 236);
+}
+#events {
+	color: rgb(34, 11, 245);
+}
+#video {
+	color: rgb(238, 61, 85);
+}
+@media (max-width: 480px) {
+	.leftBarContainer,
+	.leftbar {
+		display: none;
+	}
+}

@@ -1,0 +1,10 @@
+.MuiAppBar-colorPrimary {
+	background-color: #0e76a8 !important;
+}
+.topbarImg {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+}
