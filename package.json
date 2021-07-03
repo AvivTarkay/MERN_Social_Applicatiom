@@ -1,14 +1,21 @@
 {
-  "name": "MERN_social_media",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "MERN_social_media",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {
+		"concurrently": "^6.2.0",
+		"i": "^0.3.6",
+		"npm": "^7.19.1"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"client": "cd client && npm start",
+		"backend": "cd server && nodemon server.js",
+		"dev": "concurrently \"npm run backend\" \"npm run client\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
