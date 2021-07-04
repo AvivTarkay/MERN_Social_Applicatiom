@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import Post from "../posts/Post";
 import Share from "../share/Share";
-import "./feed.css";
-import axios from "axios";
-import { AuthContext } from "../../context/AuthContext";
-
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
-import Zoom from "@material-ui/core/Zoom";
-import { makeStyles } from "@material-ui/core/styles";
-import Fab from "@material-ui/core/Fab";
+import {
+	CssBaseline,
+	Container,
+	Zoom,
+	Fab,
+	Toolbar,
+	useScrollTrigger,
+	makeStyles,
+} from "@material-ui/core";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Toolbar from "@material-ui/core/Toolbar";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import { AuthContext } from "../../context/AuthContext";
+import { fetchPosts } from "../utils/apiFunctions";
+import "./feed.css";
 
 //*material
 const useStyles = makeStyles(theme => ({
@@ -52,22 +53,11 @@ function ScrollTop(props) {
 
 export default function Feed({ username }, props) {
 	const [posts, setPosts] = useState([]);
-	const [loading, setLoading] = useState(true);
+
 	const { user } = useContext(AuthContext);
 
 	useEffect(() => {
-		const fetchPosts = async () => {
-			const res = username
-				? await axios.get("/posts/profile/" + username)
-				: await axios.get("posts/timeline/" + user._id);
-			setPosts(
-				res.data.sort((p1, p2) => {
-					return new Date(p2.createdAt) - new Date(p1.createdAt);
-				})
-			);
-			setLoading(prevState => !prevState);
-		};
-		fetchPosts();
+		fetchPosts(username, user._id, setPosts);
 	}, [username, user._id]);
 
 	return (

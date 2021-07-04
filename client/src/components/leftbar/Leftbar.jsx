@@ -13,8 +13,7 @@ import {
 import { Users } from "../../hardCodedData";
 import FriendsList from "../friendsList/FriendsList";
 import { Link } from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+import { CssBaseline, Container } from "@material-ui/core";
 import "./leftbar.css";
 
 function Leftbar() {

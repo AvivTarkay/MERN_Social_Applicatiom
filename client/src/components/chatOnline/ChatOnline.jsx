@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getFriends } from "../utils/apiFunctions";
 import axios from "axios";
 import "./chatonline.css";
 
@@ -9,15 +10,7 @@ function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
 	useEffect(() => {
-		const getFriends = async () => {
-			try {
-				const friendsRes = await axios.get(`/users/friends/${currentId}`);
-				setFriends(friendsRes.data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		getFriends();
+		getFriends(currentId, setFriends);
 	}, [currentId]);
 
 	useEffect(() => {

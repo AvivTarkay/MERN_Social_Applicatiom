@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { getUser } from "../utils/apiFunctions";
 import "./conversation.css";
 
 function Conversation({ conversation, currentUser }) {
@@ -11,16 +11,7 @@ function Conversation({ conversation, currentUser }) {
 		const friendId = conversation.members.find(
 			member => member !== currentUser._id
 		);
-
-		const getUser = async () => {
-			try {
-				const userResponse = await axios.get(`users/?userId=${friendId}`);
-				setUser(userResponse.data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		getUser();
+		getUser(friendId, setUser);
 	}, [conversation, currentUser]);
 
 	return (

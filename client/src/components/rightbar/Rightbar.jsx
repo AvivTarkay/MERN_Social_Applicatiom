@@ -3,30 +3,24 @@ import { Users } from "../../hardCodedData";
 import ProfileFriends from "../profileFriends/ProfileFriends";
 import OnlineUsers from "../onlineFriends/OnlineFriends";
 import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
-
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+import { CssBaseline, Container } from "@material-ui/core";
+import { getFriends } from "../utils/apiFunctions";
+import axios from "axios";
 
 export default function Rightbar({ user }) {
+	console.log("🚀 ~ file: Rightbar.jsx ~ line 13 ~ Rightbar ~ user", user);
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 	const [friends, setFriends] = useState([]);
 	const { user: currentUser, dispatch } = useContext(AuthContext);
+
 	const [followed, setFollowed] = useState(
-		currentUser.followings.includes(user?.id)
+		currentUser.followings.includes(user?._id)
 	);
+
 	useEffect(() => {
-		const getFriends = async () => {
-			try {
-				const friendList = await axios.get(`/users/friends/${currentUser._id}`);
-				setFriends(friendList.data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		getFriends();
+		getFriends(currentUser._id, setFriends);
 	}, [user, currentUser._id]);
 
 	const handleClick = async () => {
@@ -43,7 +37,9 @@ export default function Rightbar({ user }) {
 				dispatch({ type: "FOLLOW", payload: user._id });
 			}
 			setFollowed(followed => !followed);
-		} catch (err) {}
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const HomeRightbar = () => {

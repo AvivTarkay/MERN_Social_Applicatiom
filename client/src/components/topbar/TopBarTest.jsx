@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
+import {
+	AppBar,
+	Toolbar,
+	IconButton,
+	Typography,
+	InputBase,
+	Badge,
+	MenuItem,
+	Menu,
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
@@ -18,7 +20,6 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Leftbar from "../leftbar/menuLeftBar";
-
 import clsx from "clsx";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 
@@ -98,17 +99,14 @@ export default function PrimarySearchAppBar() {
 	const history = useHistory();
 	const { user } = useContext(AuthContext);
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-	// const DF = process.env.REACT_APP_DEFAULT_FOLDER;
-
-	const [state, setState] = React.useState({
-		right: false,
-	});
-
 	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+	const [state, setState] = React.useState({
+		right: false,
+	});
 
 	const handleProfileMenuOpen = event => {
 		setAnchorEl(event.currentTarget);
