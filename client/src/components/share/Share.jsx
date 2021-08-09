@@ -8,7 +8,6 @@ import {
 } from "@material-ui/icons";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Skeleton } from "@material-ui/lab";
 import axios from "axios";
 
 export default function Share() {
@@ -25,10 +24,12 @@ export default function Share() {
 		};
 		if (file) {
 			const data = new FormData();
+
 			const fileName = Date.now() + file.name;
 			data.append("name", fileName);
 			data.append("file", file);
 			newPost.img = fileName;
+
 			console.log(newPost);
 			try {
 				await axios.post("/upload", data);

@@ -42,6 +42,7 @@ function Post({ postData }) {
 	};
 
 	const deletePost = async () => {
+		console.log("aviv");
 		try {
 			await axios.delete("/posts/" + _id, { userId: currentUser._id });
 		} catch (error) {

@@ -104,9 +104,11 @@ export default function PrimarySearchAppBar() {
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-	const [state, setState] = React.useState({
-		right: false,
-	});
+	const [state, setState] = React.useState({ left: false });
+	console.log(
+		"🚀 ~ file: TopBarTest.jsx ~ line 110 ~ PrimarySearchAppBar ~ state",
+		state
+	);
 
 	const handleProfileMenuOpen = event => {
 		setAnchorEl(event.currentTarget);
@@ -197,7 +199,8 @@ export default function PrimarySearchAppBar() {
 	const list = anchor => (
 		<div
 			className={clsx(classes.list, {
-				[classes.fullList]: anchor === "top" || anchor === "bottom",
+				[classes.fullList]:
+					anchor === "top" || anchor === "bottom" || anchor === "left",
 			})}
 			role="presentation"
 			onClick={toggleDrawer(anchor, false)}

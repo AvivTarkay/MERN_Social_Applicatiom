@@ -15,7 +15,10 @@ export function Login(props) {
 		console.log("email =>", email.current.value, "password =>", password);
 		e.preventDefault();
 		loginCtrl(
-			{ email: email.current.value, password: password.current.value },
+			{
+				email: email.current.value,
+				password: password.current.value,
+			},
 			dispatch
 		);
 	};

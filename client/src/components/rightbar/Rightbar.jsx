@@ -10,7 +10,6 @@ import { getFriends } from "../utils/apiFunctions";
 import axios from "axios";
 
 export default function Rightbar({ user }) {
-	console.log("🚀 ~ file: Rightbar.jsx ~ line 13 ~ Rightbar ~ user", user);
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 	const [friends, setFriends] = useState([]);
 	const { user: currentUser, dispatch } = useContext(AuthContext);

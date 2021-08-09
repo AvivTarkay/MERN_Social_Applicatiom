@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Post from "../posts/Post";
 import Share from "../share/Share";
 import {
@@ -53,7 +53,6 @@ function ScrollTop(props) {
 
 export default function Feed({ username }, props) {
 	const [posts, setPosts] = useState([]);
-
 	const { user } = useContext(AuthContext);
 
 	useEffect(() => {

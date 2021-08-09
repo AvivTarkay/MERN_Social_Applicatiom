@@ -31,3 +31,30 @@ export const fetchPosts = async (username, userId, setFunc) => {
 		})
 	);
 };
+
+//  const handleDelete = async id => {
+// 		setSuccess(false);
+// 		setError(false);
+// 		try {
+// 			await axiosJWT.delete("/users/" + id, {
+// 				headers: { authorization: "Bearer " + user.accessToken },
+// 			});
+// 			setSuccess(true);
+// 		} catch (err) {
+// 			setError(true);
+// 		}
+//  };
+
+//  const refreshToken = async () => {
+// 		try {
+// 			const res = await axios.post("/refresh", { token: user.refreshToken });
+// 			setUser({
+// 				...user,
+// 				accessToken: res.data.accessToken,
+// 				refreshToken: res.data.refreshToken,
+// 			});
+// 			return res.data;
+// 		} catch (err) {
+// 			console.log(err);
+// 		}
+//  };
