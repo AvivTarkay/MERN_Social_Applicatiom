@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 //update user
 router.put("/:id", async (req, res) => {
@@ -26,9 +27,28 @@ router.put("/:id", async (req, res) => {
 	}
 });
 
-//delete user
-router.delete("/:id", async (req, res) => {
+const verify = (req, res, next) => {
+	const authHeader = req.headers.authorization;
+	if (authHeader) {
+		const token = authHeader.split(" ")[1];
+
+		jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+			if (err) {
+				return res.status(403).json("Token is not valid!");
+			}
+
+			req.user = user;
+			next();
+		});
+	} else {
+		res.status(401).json("You are not authenticated!");
+	}
+};
+
+//*delete user
+router.delete("/:id", verify, async (req, res) => {
 	if (req.body.userId === req.params.id || req.body.isAdmin) {
+		console.log(req.body);
 		try {
 			await User.findByIdAndDelete(req.params.id);
 			res.status(200).json("Account has been deleted");
@@ -36,7 +56,8 @@ router.delete("/:id", async (req, res) => {
 			return res.status(500).json(err);
 		}
 	} else {
-		return res.status(403).json("You can delete only your account!");
+		console.log(req.body.userId, req.params.id);
+		return res.status(403).json("You are not allowed to delete this account!");
 	}
 });
 

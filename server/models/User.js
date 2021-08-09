@@ -20,6 +20,8 @@ const UserSchema = new mongoose.Schema(
 			required: true,
 			min: 6,
 		},
+		accessToken: { type: String, default: "" },
+		refreshToken: { type: String, default: "" },
 		profilePicture: {
 			type: String,
 			default: "",
